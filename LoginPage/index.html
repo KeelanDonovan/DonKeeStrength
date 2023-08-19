@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>DonKee Strength</title>
+  <link rel="shortcut icon" href="./src/assets/Logo.png">
+  <link rel="stylesheet" href="./src/styles/general.css">
+  <link rel="stylesheet" href="./src/styles/login.css">
+  <link rel="stylesheet" href="./src/styles/home-banner.css">
+  <link rel="stylesheet" href="./src/styles/todays-workout.css">
+  <link rel="stylesheet" href="./src/styles/current-progress.css">
+  <link rel="stylesheet" href="./src/styles/workout-calendar.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+</head>
+
+<body>
+  <div class="login-container" id="registration">
+    <form class="form" id="login">
+      <h1 class="form-title">Login</h1>
+      <div class="form-message form-message-error"></div>
+      <div class="form-input-group">
+        <input type="text" class="form-input" autofocus placeholder="Username or email">
+        <div class="form-input-error-message"></div>
+      </div>
+      <div class="form-input-group">
+        <input type="password" class="form-input" autofocus placeholder="Password">
+        <div class="form-input-error-message"></div>
+      </div>
+      <button class="form-button" type="submit">Continue</button>
+      <p class="form-text">
+        <a href="#" class="form-link">Forgot password?</a>
+      </p>
+      <p class="form-text">
+        <a class="form-link" href="./" id="linkCreateAccount">Don't have an account? Create account</a>
+      </p>
+    </form>
+
+    <form class="form form-hidden" id="createAccount">
+      <h1 class="form-title">Create Account</h1>
+      <div class="form-message form-message-error"></div>
+      <div class="form-input-group">
+        <input type="text" class="form-input" id="signupUsername" autofocus placeholder="Username">
+        <div class="form-input-error-message"></div>
+      </div>
+      <div class="form-input-group">
+        <input type="text" class="form-input" autofocus placeholder="Email Address">
+        <div class="form-input-error-message"></div>
+      </div>
+      <div class="form-input-group">
+        <input type="password" class="form-input" autofocus placeholder="Password">
+        <div class="form-input-error-message"></div>
+      </div>
+      <div class="form-input-group">
+        <input type="password" class="form-input" autofocus placeholder="Confirm Password">
+        <div class="form-input-error-message"></div>
+      </div>
+      <button class="form-button" type="submit">Continue</button>
+      <p class="form-text">
+        <a class="form-link" href="./" id="linkLogin">Already have an account? Sign in</a>
+      </p>
+    </form>
+  </div>
+
+  <div class="home-container container-hidden" id="home">
+    <div class="home-banner">
+      <div class="home-banner-left">
+        <img src="./src/assets/Logo.png" class="home-banner-logo">
+      </div>
+      <div class="home-banner-middle">
+        <button class="home-banner-button" id="todays-workout">Today's Workout</button>
+        <button class="home-banner-button" id="workout-calendar">Workout Calendar</button>
+        <button class="home-banner-button" id="recovery">Recovery</button>
+        <button class="home-banner-button" id="current-progress">Current Progress</button>
+      </div>
+      <div class="home-banner-left">
+        <button class="home-banner-button" id="logout">Logout</button>
+      </div>
+    </div>
+
+    <div class="content-container container-hidden" id="content">
+      <div class="todays-workout-section">
+        <h1 class="section-title todays-workout-title">Today's Workout</h1>
+        <div class="workout-block">
+          <div class="workout-block-left">
+            Exercise Name
+          </div>
+          <div class="workout-block-middle">
+            sets reps rpe
+          </div>
+          <div class="workout-block-right">
+            Notes
+          </div>
+        </div>
+      </div>
+
+      <div class="workout-calendar-section">
+        <h1 class="section-title workout-calendar-title">Workout Calendar</h1>
+        <div class="workout-calendar">
+          <div class="left">
+            <div class="calendar">
+              <div class="month">
+                <i class="fa fa-angle-left prev"></i>
+                <div class="date"></div>
+                <i class="fa fa-angle-right next"></i>
+              </div>
+              <div class = "calendar-controls">
+                <div class="tooltip">
+                  <span class="tooltiptext">Go to Today</span>
+                  <i class="control-button fa fa-lg fa-home" id="goto-today" onclick="gotoToday()"></i>
+                </div>
+                <div class="tooltip">
+                  <span class="tooltiptext">Add Workout</span>
+                  <i class="control-button fa fa-lg fa-dumbbell" id="add-workout"></i>
+                </div>
+                <div class="tooltip">
+                  <span class="tooltiptext">Add Recovery Data</span>
+                  <i class="control-button fa fa-lg fa-suitcase-medical" id="add-recovery"></i>
+                </div>
+              </div>
+              <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+              </div>
+              <div class="days">
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <div class="today-date">
+              <div class="event-day">Mon</div>
+              <div class="event-date">14 August 2023</div>
+            </div>
+          </div>
+        </div>
+
+
+       
+      </div>
+
+      <div class="recovery-section">
+        <h1 class ="section-title recovery-title">Recovery</h1>
+      </div>
+
+      <div class="current-progress-section">
+
+        <h1 class="section-title current-progress-title">Current Progress</h1>
+
+        <h1 class="secondary-title">Estimated 1RMs</h1>
+
+        <div class="estimated-bests">
+          <div class="squat-1rm 1rm-display">
+            <h2>Squat</h2>
+          </div>
+
+          <div class="bench-1rm 1rm-display">
+            <h2>Bench</h2>
+          </div>
+
+          <div class="deadlift-1rm 1rm-display">
+            <h2>Deadlift</h2>
+          </div>
+        </div>
+
+        <h1 class="secondary-title">Current PRs</h1>
+
+        <div class="current-bests">
+          <div class="squat-pr pr-display">
+            <h2>Squat</h2>
+          </div>
+
+          <div class="bench-pr pr-display">
+            <h2>Bench</h2>
+          </div>
+
+          <div class="deadlift-pr pr-display">
+            <h2>Deadlift</h2>
+          </div>
+
+        </div>
+
+        <h1 class="secondary-title">Estimated DOTS</h1>
+
+        <div class="estimated-dots">Estimatd DOTS score:</div>
+      </div>
+
+      <div class="create-new-workout-popup">
+        <div class="new-workout-header">
+          <div class="workout-title-block">
+            <h1 class="workout-title">New Workout</h1>
+            <div class="tooltip">
+              <span class="tooltiptext">Edit Workout Title</span>
+              <i class="control-button fa fa-lg fa-pencil" id="edit-workout-title"></i>
+            </div>
+          </div>
+          <div class="workout-edit-controls">
+            <div class="tooltip">
+              <span class="tooltiptext">Add Exercise</span>
+              <i class="control-button fa fa-lg fa-plus" id="add-workout"></i>
+            </div>
+            <div class="tooltip">
+              <span class="tooltiptext">Save Workout</span>
+              <i class="control-button fa fa-lg fa-save" id="save-workout"></i>
+            </div>
+            <div class="tooltip">
+              <span class="tooltiptext">Cancel</span>
+              <i class="control-button fa fa-lg fa-trash" id="cancel-workout"></i>
+            </div>
+          </div>
+        </div>
+        <div class="workout-plan">
+          <div class="exercise">
+            <div class="exercise-name">
+              <input type="text" class="exercise-name-input" placeholder="Exercise Name">
+              <input type="text" class="exercise-sets-input" placeholder="Number of Sets">
+            </div>
+            <div class="exercise-sets"></div>
+            <div class="exercise-notes"></div>
+          </div>
+
+        </div>
+
+        
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="./src/js/login.js"></script>
+  <script src="./src/js/calendar.js"></script>
+
+</body>

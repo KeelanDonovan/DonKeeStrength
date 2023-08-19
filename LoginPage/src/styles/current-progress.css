@@ -1,0 +1,13 @@
+.secondary-title {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+.estimated-bests, .current-bests{
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}

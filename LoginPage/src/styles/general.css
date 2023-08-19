@@ -1,0 +1,57 @@
+body {
+  --color-primary: #E50000;
+  --color-primary-dark: #860000;
+  --color-secondary: rgb(48, 40, 40);
+  --color-white: rgb(248, 248, 248);
+  --color-error: #ff0000;
+  --color-success: #00ff00;
+  --border-radius: 8px;
+
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: url(/src/assets/barbell.jpg);
+  background-size: fill;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 0px;
+  overflow: scroll;
+  margin-bottom: 200px;
+}
+
+.home-container {
+  margin: 0 auto;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  margin-top: 160px
+  
+}
+
+.todays-workout-section, .current-progress-section, .workout-calendar-section, .recovery-section {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 90%;
+  min-width: 1044px;
+  padding:10px 30px;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: bold;
+}

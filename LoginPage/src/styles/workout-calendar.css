@@ -1,0 +1,371 @@
+.workout-calendar {
+  position: relative;
+  width: 100%;
+  min-height: 550px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+  
+}
+.left {
+  width: 60%;
+  padding: 0;
+}
+.calendar {
+  position: relative;
+  min-width: 627px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: var(--border-radius);
+  background-color: rgb(230, 230, 230);
+  color: var(--color-secondary);
+
+}
+
+.calendar::before,
+.calendar::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 12px;
+  height: 97%;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  background-color: rgb(220, 220, 220);
+  transform: translateY(-50%);
+}
+.calendar::before {
+  height: 94%;
+  left: calc(100% + 12px);
+  background-color: rgb(210, 210, 210);
+}
+.calendar .month {
+  width: 50%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.calendar .month .prev,
+.calendar .month .next {
+  cursor: pointer;
+}
+.calendar .month .prev:hover,
+.calendar .month .next:hover {
+  color: var(--color-primary);
+}
+.calendar .weekdays {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.weekdays div {
+  width: 14.28%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar .days {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.calendar .days .day {
+  min-width: 14.28%;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-primary);
+  border: 1px solid rgb(220, 220, 220);
+  box-sizing: border-box;
+}
+
+.calendar .days .day:nth-child(7n + 1) {
+  border-left: 2px solid rgb(220, 220, 220);
+}
+.calendar .days .day:nth-child(7n) {
+  border-right: 2px solid rgb(220, 220, 220);
+}
+.calendar .days .day:nth-child(-n + 7) {
+  border-top: 2px solid rgb(220, 220, 220);
+}
+.calendar .days .day:nth-child(n + 29) {
+  border-bottom: 2px solid rgb(220, 220, 220);
+}
+
+.calendar .days .day:not(.prev-date, .next-date):hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.calendar .days .day:not(.prev-date, .next-date):active {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
+}
+
+.calendar .days .prev-date,
+.calendar .days .next-date {
+  color: #8b8b8b;
+}
+.calendar .days .active {
+  position: relative;
+  font-size: 2rem;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+.calendar .days .active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 3px 1px var(--color-primary);
+}
+.calendar .days .today {
+  font-size: 1.5rem;
+}
+.calendar .days .event {
+  position: relative;
+}
+.calendar .days .event::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  width: 75%;
+  height: 6px;
+  border-radius: 30px;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+}
+.calendar .days .day:hover.event::after {
+  background-color: var(--color-white);
+}
+.calendar .days .active.event::after {
+  background-color: var(--color-white);
+  bottom: 20%;
+}
+.calendar .days .active.event {
+  padding-bottom: 10px;
+}
+
+.workout-calendar .right {
+  position: relative;
+  width: 40%;
+  min-height: 100%;
+  margin-left: 60px;
+  background-color: var(--color-primary-dark);
+  border-radius: var(--border-radius);
+}
+.today-date {
+  max-width: 80%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  padding-left: 60px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.today-date .event-day {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+}
+.today-date .event-date {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgb(240, 225, 225);
+}
+.calendar-controls {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.tooltiptext {
+  position: absolute;
+  background-color: var(--color-white);
+  font-size: 14px;
+  white-space: nowrap;
+  transform: translateY(-200%);
+  border-radius: var(--border-radius);
+  padding: 2px 4px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.tooltip:hover .tooltiptext {
+  top: -200%;
+  visibility: visible;
+  opacity: 1;
+}
+.calendar-controls .fa {
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-primary);
+  text-shadow: 2px 4px 6px rgb(122, 122, 122);
+  transition: font-size 0.2s ease-in-out
+}
+.calendar-controls .fa:hover {
+  font-size: 2.5rem;
+  color: var(--color-primary-dark);
+}
+
+.create-new-workout-popup {
+  position: relative;
+  width: 90%;
+  min-width: 850px;
+  min-height: 500px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.new-workout-header {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.workout-title-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 70%;
+  margin: 20px 0;
+  padding:0;
+  color: var(--color-secondary);
+}
+.workout-edit-controls {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  width: 30%;
+  margin: 20px 0;
+  padding:0;
+  color: var(--color-secondary);
+}
+.new-workout-header .fa-plus, .fa-save, .fa-pencil {
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-shadow: 2px 4px 6px rgb(122, 122, 122);
+  transition: font-size 0.2s ease-in-out;
+}
+
+.workout-edit-controls .fa-trash {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-error);
+  text-shadow: 2px 4px 6px rgb(122, 122, 122);
+  transition: font-size 0.2s ease-in-out;
+}
+
+.new-workout-header .control-button:hover {
+  font-size: 2rem;
+}
+
+.workout-plan {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.workout-plan .exercise {
+  position: relative;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0;
+  border-radius: var(--border-radius);
+  background-color: rgb(230, 230, 230);
+  color: var(--color-secondary);
+  padding: 10px 20px;
+}
+.workout-plan .exercise .exercise-name {
+  position: relative;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  color: var(--color-secondary);
+}
+.workout-plan .exercise .exercise-name input {
+  position: relative;
+  width: 100%;
+  padding: 10px 10px;
+  border: none;
+  outline: none;
+  border-bottom: dotted 1px var(--color-secondary);
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  color: var(--color-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+
+
